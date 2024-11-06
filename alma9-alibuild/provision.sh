@@ -4,6 +4,7 @@ dnf update -y
 dnf install -y python3 python3-pip python3-devel python3-virtualenv
 
 pip install alibuild
+mkdir -p ~/.config/alibuild
 touch ~/.config/alibuild/disable-analytics
 
 # START https://alice-doc.github.io/alice-analysis-tutorial/building/prereq-alma9.html
