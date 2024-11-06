@@ -1,0 +1,25 @@
+{
+  "_comment": "Alma 9 with a lot of random stuff and aliBuild",
+  "builders": [
+    {
+      "type": "docker",
+      "image": "singiamtel/alma9_fat:latest",
+      "commit": true
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "script": "provision.sh"
+    }
+  ],
+  "post-processors": [
+    [
+      {
+        "type": "docker-tag",
+        "repository": "singiamtel/alma9-alibuild",
+        "tag": "latest"
+      }
+    ]
+  ]
+}

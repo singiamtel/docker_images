@@ -1,0 +1,25 @@
+{
+  "_comment": "Alma 9 with a lot of random stuff",
+  "builders": [
+    {
+      "type": "docker",
+      "image": "almalinux:9",
+      "commit": true
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "script": "provision.sh"
+    }
+  ],
+  "post-processors": [
+    [
+      {
+        "type": "docker-tag",
+        "repository": "singiamtel/alma9_fat",
+        "tag": "latest"
+      }
+    ]
+  ]
+}
