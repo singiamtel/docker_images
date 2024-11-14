@@ -1,7 +1,14 @@
 #!/bin/sh -ex
 
 dnf update -y
-dnf install -y python3 python3-pip python3-devel python3-virtualenv
+dnf install -y python3 python3-pip python3-devel python3-virtualenv yum-utils
+
+
+# START Docker
+yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+dnf install docker-ce docker-ce-cli containerd.io docker-compose-plugin -y
+
+# END Docker
 
 pip install alibuild
 mkdir -p ~/.config/alibuild
